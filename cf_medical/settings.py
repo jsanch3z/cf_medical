@@ -76,13 +76,17 @@ WSGI_APPLICATION = 'cf_medical.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+import pymysql
+pymysql.version_info = (1,4,2, ' final', 0)
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cf_medical',
+        'NAME': 'bootcamp',
         'USER': USER_DB,
         'PASSWORD': PASSWORD_DB,
-        'HOST':'localhost',
+        'HOST':'10.237.5.15',
         'PORT':'3306',
     }
 }
