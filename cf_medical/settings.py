@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'bootcamp',
         'USER': USER_DB,
         'PASSWORD': PASSWORD_DB,
-        'HOST':'10.237.5.15',
+        'HOST': HOST,
         'PORT':'3306',
     }
 }
