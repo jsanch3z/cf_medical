@@ -43,9 +43,9 @@ def deploy():
 def master(commit):
     local('git add --all')
     local(f'git commit -m "{commit}"' )
-    local('git push origin master')
+    local('git push github master')
 
-    
+
 
 
 
