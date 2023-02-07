@@ -1,9 +1,13 @@
 from fabric.api import run
-from fabric.api import env, cd, prefix, sudo
+from fabric.api import env, cd, prefix, sudo, put, get, task
 from fabric.api import local
 
+# run se ejecuta de forma remota con ssh
+# local se ejecutan en nuestr maquina local
+
+
 env.hosts = ['18.236.180.236']
-env.port = '50519'
+env.port = '53140'
 env.user = 'js'
 env.key_filename = '/home/jesus/.ssh/id_ed25519.pub'
 
@@ -39,19 +43,25 @@ def deploy():
     #sudo('sudo systemctl restart nginx')
     print('proceso de deploy finalizado')
 
-
+@task
 def master(commit):
     local('git add --all')
     local(f'git commit -m "{commit}"' )
     local('git push github master')
 
+@task
+def upload_file():
+    put(
+        local_path='../configuracion_nginx.PNG',
+        remote_path='./configuration_nginx.png'
+    )
 
-
-
-
-
-
-
+@task
+def download_file():
+    get(
+        local_path='./',
+        remote_path='./project/cf_medical/readme.md'
+    )
 
 def mkdir(folder):
     command = f'mkdir {folder}'
