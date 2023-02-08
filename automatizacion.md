@@ -4,7 +4,7 @@ pip install fabric3
 Verificamos los comando que tiene el archivo fabfile.py
 fab -l  ó  fab --list
 
-# Pasar argumentos, crea el forder example
+# Pasar argumentos, crea el forder por nombre example
 fab mkdir:folder=example
 
 fab --port=50519 -H 18.236.180.236 --user=js mkdir:folder=example

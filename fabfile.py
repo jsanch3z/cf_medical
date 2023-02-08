@@ -11,9 +11,11 @@ env.port = '53140'
 env.user = 'js'
 env.key_filename = '/home/jesus/.ssh/id_ed25519.pub'
 
+@task
 def hello_world():
     print("Hola desde fabfile")
 
+@task
 def deploy():
     print(">>> nos conectamos a nuestro servidor remoto.")
     #run('ls')
